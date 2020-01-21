@@ -6,17 +6,17 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add New Country</title>
+<title>Add New Course</title>
 </head>
 <body>
-	<h1>Add New Country</h1>
+	<h1>Add New Course</h1>
 
-	<form:form action="${pageContext.request.contextPath }/country/add"
-		modelAttribute="country">
-		<form:input path="countryCode" /> <br>
-		<form:input path="countryName" /> <br>
+	<form:form action="${pageContext.request.contextPath }/course/add"
+		modelAttribute="course">
+		<form:input path="courseName" />
+		<br>
 
-		<input type="submit" name="submit" value="Add Country">
+		<input type="submit" name="submit" value="Add Course">
 	</form:form>
 
 </body>

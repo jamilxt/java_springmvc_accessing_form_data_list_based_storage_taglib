@@ -6,18 +6,20 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add New Country</title>
+<title>Course List</title>
 </head>
 <body>
-	<h1>Add New Country</h1>
-
-	<form:form action="${pageContext.request.contextPath }/country/add"
-		modelAttribute="country">
-		<form:input path="countryCode" /> <br>
-		<form:input path="countryName" /> <br>
-
-		<input type="submit" name="submit" value="Add Country">
-	</form:form>
-
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Course Name</th>
+		</tr>
+		<c:forEach items="${courses }" var="course">
+			<tr>
+				<th>${ course.courseId }</th>
+				<th>${ course.courseName }</th>
+			</tr>
+		</c:forEach>
+	</table>
 </body>
 </html>
