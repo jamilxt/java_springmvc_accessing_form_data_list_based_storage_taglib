@@ -1,5 +1,4 @@
-**/.settings/
-/target
-/WebContent
-/.classpath
-/.project
+target
+.classpath
+.project
+.settings
