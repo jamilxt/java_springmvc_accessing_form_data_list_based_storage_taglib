@@ -6,18 +6,19 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add New Course</title>
+<title>Edit Course</title>
 </head>
 <body>
 
-	<h1>Add New Course</h1>
+	<h1>Edit Course</h1>
 
-	<form:form action="${pageContext.request.contextPath }/course/add"
+	<form:form action="${pageContext.request.contextPath }/course/edit"
 		modelAttribute="course">
-		<form:input path="courseName" />
+		<form:input path="courseId" value="${courseId}" hidden="hidden"/>
+		<form:input path="courseName" value="${courseName}" />
 		<br>
 
-		<input type="submit" name="submit" value="Add Course">
+		<input type="submit" name="submit" value="Edit Course">
 	</form:form>
 
 </body>

@@ -18,6 +18,7 @@
 			<tr>
 				<th>${ course.courseId }</th>
 				<th>${ course.courseName }</th>
+				<th><a href="edit?id=${ course.courseId }">Edit</a></th>
 			</tr>
 		</c:forEach>
 	</table>

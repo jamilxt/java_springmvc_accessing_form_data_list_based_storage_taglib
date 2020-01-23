@@ -9,6 +9,7 @@
 <title>Add New Country</title>
 </head>
 <body>
+
 	<h1>Add New Country</h1>
 
 	<form:form action="${pageContext.request.contextPath }/country/add"

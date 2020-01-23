@@ -6,6 +6,8 @@ import java.util.stream.Stream;
 
 import org.springframework.stereotype.Service;
 
+import com.spring5.practice.exceptions.ResourceAlreadyExistsException;
+import com.spring5.practice.exceptions.ResourceNotFoundException;
 import com.spring5.practice.model.Country;
 
 @Service
@@ -50,7 +52,7 @@ public class CountryService {
 	public void checkCountryInList(Country c) {
 		if (countries.stream().filter(country -> country.getCountryCode().equals(c.getCountryCode())).findAny()
 				.isPresent()) {
-			throw new RuntimeException("Country already exists in list");
+			throw new ResourceAlreadyExistsException("Country already exists in list");
 		}
 	}
 
@@ -63,7 +65,7 @@ public class CountryService {
 //		}
 
 		return countries.stream().filter(country -> country.getCountryCode().equals(countryCode)).findAny()
-				.orElseThrow(() -> new RuntimeException("Country not found with this code"));
+				.orElseThrow(() -> new ResourceNotFoundException("Country not found with this code"));
 
 	}
 

@@ -6,19 +6,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add New Course</title>
+<title>Spring By Practical Examples</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/css/bootstrap.min.css" />
 </head>
 <body>
-
-	<h1>Add New Course</h1>
-
-	<form:form action="${pageContext.request.contextPath }/course/add"
-		modelAttribute="course">
-		<form:input path="courseName" />
-		<br>
-
-		<input type="submit" name="submit" value="Add Course">
-	</form:form>
-
-</body>
-</html>

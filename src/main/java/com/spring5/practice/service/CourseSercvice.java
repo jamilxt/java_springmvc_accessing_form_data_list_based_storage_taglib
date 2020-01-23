@@ -6,6 +6,8 @@ import java.util.stream.Stream;
 
 import org.springframework.stereotype.Service;
 
+import com.spring5.practice.exceptions.ResourceAlreadyExistsException;
+import com.spring5.practice.exceptions.ResourceNotFoundException;
 import com.spring5.practice.model.Course;
 
 @Service
@@ -31,8 +33,8 @@ public class CourseSercvice {
 		courses.add(courseObj);
 	}
 
-//	
-//	
+	//
+	//
 
 	public void addCourse(Course course) {
 		checkCourseInList(course);
@@ -42,18 +44,30 @@ public class CourseSercvice {
 
 	private void checkCourseInList(Course c) {
 		if (courses.stream().filter(course -> course.getCourseName().equals(c.getCourseName())).findAny().isPresent()) {
-			throw new RuntimeException("Course already exists in list");
+			throw new ResourceAlreadyExistsException("Course already exists in list");
 		}
 	}
 
 	public Course getCourseByName(String courseName) {
 
 		return courses.stream().filter(course -> course.getCourseName().equals(courseName)).findAny()
-				.orElseThrow(() -> new RuntimeException("Course not found with this code"));
+				.orElseThrow(() -> new ResourceNotFoundException("Course not found with this name"));
 	}
 
 	public List<Course> getAll() {
 		return courses;
 	}
 
+	//
+	//
+
+	public Course getCourseById(long courseId) {
+		return courses.stream().filter(course -> course.getCourseId() == courseId).findFirst()
+				.orElseThrow(() -> new ResourceNotFoundException("Course not found with this id"));
+	}
+
+	public void editCourse(Course c) {
+		Course courseObj = getCourseById(c.getCourseId());
+		courseObj.setCourseName(c.getCourseName());
+	}
 }
